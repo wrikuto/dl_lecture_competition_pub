@@ -7,6 +7,7 @@ import torch
 from statistics import mode
 from utils.text_processing import process_text
 
+
 # 1. データローダーの作成
 class VQADataset(torch.utils.data.Dataset):
     def __init__(self, df_path, image_dir, transform=None, answer=True):
@@ -31,7 +32,6 @@ class VQADataset(torch.utils.data.Dataset):
                     if word not in self.answer2idx:
                         self.answer2idx[word] = len(self.answer2idx)
             self.idx2answer = {v: k for k, v in self.answer2idx.items()}
-
 
     def update_dict(self, dataset):
         """
